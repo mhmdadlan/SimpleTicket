@@ -81,15 +81,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Migrations\201910171331229_InitialCreate.cs" />
-    <Compile Include="Migrations\201910171331229_InitialCreate.designer.cs">
-      <DependentUpon>201910171331229_InitialCreate.cs</DependentUpon>
+    <Compile Include="Migrations\201910180300459_ConfigureAuthModels.cs" />
+    <Compile Include="Migrations\201910180300459_ConfigureAuthModels.designer.cs">
+      <DependentUpon>201910180300459_ConfigureAuthModels.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910180413108_ConfigureTicketsModels.cs" />
+    <Compile Include="Migrations\201910180413108_ConfigureTicketsModels.designer.cs">
+      <DependentUpon>201910180413108_ConfigureTicketsModels.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ApplicationUser.cs" />
     <Compile Include="IdentityConfig.cs" />
+    <Compile Include="Models\Assignee.cs" />
     <Compile Include="Models\Group.cs" />
+    <Compile Include="Models\Priority.cs" />
+    <Compile Include="Models\Reply.cs" />
+    <Compile Include="Models\Status.cs" />
+    <Compile Include="Models\Tag.cs" />
+    <Compile Include="Models\TicketPriority.cs" />
     <Compile Include="Models\Role.cs" />
+    <Compile Include="Models\Ticket.cs" />
+    <Compile Include="Models\TicketStatus.cs" />
+    <Compile Include="Models\TicketType.cs" />
+    <Compile Include="Models\Type.cs" />
     <Compile Include="Models\UserRole.cs" />
     <Compile Include="TicketContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -99,8 +113,11 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201910171331229_InitialCreate.resx">
-      <DependentUpon>201910171331229_InitialCreate.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201910180300459_ConfigureAuthModels.resx">
+      <DependentUpon>201910180300459_ConfigureAuthModels.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910180413108_ConfigureTicketsModels.resx">
+      <DependentUpon>201910180413108_ConfigureTicketsModels.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

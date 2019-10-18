@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
+using System.Collections.Generic;
 using System.Security.Claims;
 using System.Threading.Tasks;
 
@@ -14,6 +15,11 @@ namespace DataAccess.Models
             // Add custom user claims here
             return userIdentity;
         }
+        public ICollection<Ticket> Tickets { get; set; }
+        public ICollection<TicketStatus> TicketStatuses { get; set; }
+        public ICollection<TicketType> TicketTypes { get; set; }
+        public ICollection<TicketPriority> TicketPriorities { get; set; }
+        public ICollection<Reply> Replies { get; set; }
 
     }
 }

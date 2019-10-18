@@ -7,13 +7,13 @@ namespace DataAccess.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.0-preview1-19506-01")]
-    public sealed partial class InitialCreate : IMigrationMetadata
+    public sealed partial class ConfigureAuthModels : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialCreate));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(ConfigureAuthModels));
         
         string IMigrationMetadata.Id
         {
-            get { return "201910171331229_InitialCreate"; }
+            get { return "201910180300459_ConfigureAuthModels"; }
         }
         
         string IMigrationMetadata.Source
