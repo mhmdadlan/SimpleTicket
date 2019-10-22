@@ -33,11 +33,10 @@ namespace DataAccess
     }
     public class ApplicationUserStore : UserStore<ApplicationUser, Role, string, IdentityUserLogin, UserRole, IdentityUserClaim>
     {
-        public ApplicationUserStore(IdentityDbContext context)
+        public ApplicationUserStore(TicketContext context)
             : base(context)
         {
         }
-        public System.Data.Entity.DbSet<DataAccess.Models.Group> Groups { get; set; }
     }
     // Configure the application user manager used in this application. UserManager is defined in ASP.NET Identity and is used by the application.
     public class ApplicationUserManager : UserManager<ApplicationUser, string>
@@ -49,7 +48,7 @@ namespace DataAccess
 
         public static ApplicationUserManager Create(IdentityFactoryOptions<ApplicationUserManager> options, IOwinContext context) 
         {
-            var manager = new ApplicationUserManager(new ApplicationUserStore(context.Get<IdentityDbContext>()));
+            var manager = new ApplicationUserManager(new ApplicationUserStore(context.Get<TicketContext>()));
             // Configure validation logic for usernames
             manager.UserValidator = new UserValidator<ApplicationUser>(manager)
             {

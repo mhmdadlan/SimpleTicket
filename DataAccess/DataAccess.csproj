@@ -89,21 +89,27 @@
     <Compile Include="Migrations\201910180413108_ConfigureTicketsModels.designer.cs">
       <DependentUpon>201910180413108_ConfigureTicketsModels.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201910190626474_addMissingPropertiesFixNames.cs" />
+    <Compile Include="Migrations\201910190626474_addMissingPropertiesFixNames.designer.cs">
+      <DependentUpon>201910190626474_addMissingPropertiesFixNames.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910211649496_UpdateAndRefactorModels.cs" />
+    <Compile Include="Migrations\201910211649496_UpdateAndRefactorModels.designer.cs">
+      <DependentUpon>201910211649496_UpdateAndRefactorModels.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\ICurrent.cs" />
+    <Compile Include="Models\TicketsModels\Indicator.cs" />
+    <Compile Include="Models\IndicatorName.cs" />
+    <Compile Include="Models\TicketsModels\TicketIndicator.cs" />
     <Compile Include="Models\UserModels\ApplicationUser.cs" />
     <Compile Include="IdentityConfig.cs" />
     <Compile Include="Models\TicketsModels\Assignee.cs" />
     <Compile Include="Models\UserModels\Group.cs" />
-    <Compile Include="Models\TicketsModels\Priority.cs" />
     <Compile Include="Models\TicketsModels\Reply.cs" />
-    <Compile Include="Models\TicketsModels\Status.cs" />
     <Compile Include="Models\TicketsModels\Tag.cs" />
-    <Compile Include="Models\TicketsModels\TicketPriority.cs" />
     <Compile Include="Models\UserModels\Role.cs" />
     <Compile Include="Models\TicketsModels\Ticket.cs" />
-    <Compile Include="Models\TicketsModels\TicketStatus.cs" />
-    <Compile Include="Models\TicketsModels\TicketType.cs" />
-    <Compile Include="Models\TicketsModels\Type.cs" />
     <Compile Include="Models\UserModels\UserRole.cs" />
     <Compile Include="TicketContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -118,6 +124,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201910180413108_ConfigureTicketsModels.resx">
       <DependentUpon>201910180413108_ConfigureTicketsModels.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910190626474_addMissingPropertiesFixNames.resx">
+      <DependentUpon>201910190626474_addMissingPropertiesFixNames.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910211649496_UpdateAndRefactorModels.resx">
+      <DependentUpon>201910211649496_UpdateAndRefactorModels.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

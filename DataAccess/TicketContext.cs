@@ -15,18 +15,9 @@ namespace DataAccess
 
         public System.Data.Entity.DbSet<DataAccess.Models.Ticket> Tickets { get; set; }
         public System.Data.Entity.DbSet<DataAccess.Models.Assignee> Assignees { get; set; }
-
-        public System.Data.Entity.DbSet<DataAccess.Models.Priority> Priorities { get; set; }
-        public System.Data.Entity.DbSet<DataAccess.Models.TicketPriority> TicketPriorities { get; set; }
-
-        public System.Data.Entity.DbSet<DataAccess.Models.Type> Types { get; set; }
-        public System.Data.Entity.DbSet<DataAccess.Models.TicketType> TicketTypes { get; set; }
-
-        public System.Data.Entity.DbSet<DataAccess.Models.Status> Statuses { get; set; }
-        public System.Data.Entity.DbSet<DataAccess.Models.TicketStatus> TicketStatuses { get; set; }
-
+        public System.Data.Entity.DbSet<DataAccess.Models.Indicator> Indicators { get; set; }
+        public System.Data.Entity.DbSet<DataAccess.Models.TicketIndicator> TicketIndicators { get; set; }
         public System.Data.Entity.DbSet<DataAccess.Models.Tag> Tags { get; set; }
-
         public System.Data.Entity.DbSet<DataAccess.Models.Reply> Replies { get; set; }
 
         public static TicketContext Create()

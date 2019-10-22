@@ -8,8 +8,19 @@ namespace DataAccess.Models
 {
     public class Tag
     {
-        public int ID { get; set; }
-        public string Title { get; set; }
-        public virtual ICollection<Ticket> Tickets { get; set; }
+        private Tag() { }
+        public Tag(string title)
+        {
+            if (string.IsNullOrEmpty(title))
+                throw new ArgumentNullException();
+            Title = title;
+        }
+        public Tag(string title, Ticket ticket) : this(title)
+        {
+            Tickets = new List<Ticket>() { ticket };
+        }
+        public int ID { get; private set; }
+        public string Title { get; private set; }
+        public virtual ICollection<Ticket> Tickets { get; private set; }
     }
 }
