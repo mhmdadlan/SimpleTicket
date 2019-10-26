@@ -19,6 +19,7 @@ namespace WebApp.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        private TicketContext _db;
 
         public AccountController()
         {
@@ -36,9 +37,20 @@ namespace WebApp.Controllers
             {
                 return _signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
             }
-            private set 
-            { 
-                _signInManager = value; 
+            private set
+            {
+                _signInManager = value;
+            }
+        }
+        public TicketContext db
+        {
+            get
+            {
+                return _db ?? HttpContext.GetOwinContext().Get<TicketContext>();
+            }
+            private set
+            {
+                _db = value;
             }
         }
 
@@ -157,6 +169,7 @@ namespace WebApp.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
+                    UserManager.AddToRole(user.Id, "Issuer");
                     await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
                     
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
@@ -165,7 +178,7 @@ namespace WebApp.Controllers
                     // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
 
-                    return RedirectToAction("Index", "Home");
+                    return RedirectToRoute("MyTickets");
                 }
                 AddErrors(result);
             }
@@ -394,7 +407,7 @@ namespace WebApp.Controllers
         public ActionResult LogOff()
         {
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Home", "Issuer");
         }
 
         //
@@ -451,7 +464,7 @@ namespace WebApp.Controllers
             {
                 return Redirect(returnUrl);
             }
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Home", "Issuer");
         }
 
         internal class ChallengeResult : HttpUnauthorizedResult

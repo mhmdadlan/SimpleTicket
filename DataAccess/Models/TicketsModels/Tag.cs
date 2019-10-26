@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -15,12 +16,10 @@ namespace DataAccess.Models
                 throw new ArgumentNullException();
             Title = title;
         }
-        public Tag(string title, Ticket ticket) : this(title)
-        {
-            Tickets = new List<Ticket>() { ticket };
-        }
+        
         public int ID { get; private set; }
+        [StringLength(450)]
         public string Title { get; private set; }
-        public virtual ICollection<Ticket> Tickets { get; private set; }
+        public virtual ICollection<Ticket> Tickets { get; private set; } = new List<Ticket>();
     }
 }

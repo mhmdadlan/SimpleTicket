@@ -97,6 +97,14 @@
     <Compile Include="Migrations\201910211649496_UpdateAndRefactorModels.designer.cs">
       <DependentUpon>201910211649496_UpdateAndRefactorModels.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201910241117407_MakeUpdateDateNullable.cs" />
+    <Compile Include="Migrations\201910241117407_MakeUpdateDateNullable.designer.cs">
+      <DependentUpon>201910241117407_MakeUpdateDateNullable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201910241453546_MakeTagTitleUnique.cs" />
+    <Compile Include="Migrations\201910241453546_MakeTagTitleUnique.designer.cs">
+      <DependentUpon>201910241453546_MakeTagTitleUnique.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ICurrent.cs" />
     <Compile Include="Models\TicketsModels\Indicator.cs" />
@@ -130,6 +138,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201910211649496_UpdateAndRefactorModels.resx">
       <DependentUpon>201910211649496_UpdateAndRefactorModels.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910241117407_MakeUpdateDateNullable.resx">
+      <DependentUpon>201910241117407_MakeUpdateDateNullable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201910241453546_MakeTagTitleUnique.resx">
+      <DependentUpon>201910241453546_MakeTagTitleUnique.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

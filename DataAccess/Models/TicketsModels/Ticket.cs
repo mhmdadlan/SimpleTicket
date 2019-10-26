@@ -53,7 +53,7 @@ namespace DataAccess.Models
         public virtual ApplicationUser CreatedBy { get; private set; }
         // Required
         public DateTime CreatedAt { get; private set; } = DateTime.UtcNow.AddHours(3);
-        public DateTime UpdatedAt { get; set; }
+        public DateTime? UpdatedAt { get; set; }
         public virtual ICollection<Assignee> Assignees { get; private set; } = new List<Assignee>();
         public virtual ICollection<Reply> Replies { get; private set; } = new List<Reply>();
         public virtual ICollection<Tag> Tags { get; private set; } = new List<Tag>();
@@ -88,7 +88,11 @@ namespace DataAccess.Models
             foreach (var newTag in newTags)
             {
                 if (!Tags.Any(t => t.Title == newTag.Title))
+                {
+                    newTag.Tickets.Add(this);
                     Tags.Add(newTag);
+
+                }
             }
         }
         private void RemoveTag(Tag tag)

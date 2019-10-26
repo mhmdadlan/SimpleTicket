@@ -1,0 +1,23 @@
+﻿
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="/docs/4.0/assets/img/favicons/favicon.ico">
+
+    <title>Simple Ticket</title>
+
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" href="@Url.Content("~/Content/signin.css")" />
+
+</head>
+
+<body class="text-center">
+    @RenderBody()
+    @RenderSection("scripts", required: false)
+</body>
+</html>

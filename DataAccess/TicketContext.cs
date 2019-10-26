@@ -19,7 +19,13 @@ namespace DataAccess
         public System.Data.Entity.DbSet<DataAccess.Models.TicketIndicator> TicketIndicators { get; set; }
         public System.Data.Entity.DbSet<DataAccess.Models.Tag> Tags { get; set; }
         public System.Data.Entity.DbSet<DataAccess.Models.Reply> Replies { get; set; }
-
+        protected override void OnModelCreating(DbModelBuilder modelBuilder)
+        {
+            base.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<Tag>()
+                .HasIndex(u => u.Title)
+                .IsUnique();
+        }
         public static TicketContext Create()
         {
             return new TicketContext();
