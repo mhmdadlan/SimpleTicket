@@ -3,6 +3,7 @@ using DataAccess.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Web;
 
 namespace WebApp.Models
@@ -64,7 +65,15 @@ namespace WebApp.Models
             viewTicketDto.ID = ticket.ID;
             viewTicketDto.Subject = ticket.Subject;
             viewTicketDto.Details = ticket.Details;
-            viewTicketDto.Tags = ticket.Tags.Select(t => t.Title).ToArray();
+            // Concatenate all the elements into a StringBuilder.
+            StringBuilder builder = new StringBuilder();
+            foreach (string value in ticket.Tags.Select(t => t.Title).ToArray())
+            {
+                builder.Append(value);
+                builder.Append(", ");
+            }
+            viewTicketDto.Tags = builder.ToString();
+
             viewTicketDto.Status = ticket.Status.Indicator.Title;
             viewTicketDto.Type = ticket.Type.Indicator.Title;
             viewTicketDto.CreatedAt = ticket.CreatedAt.ToString("MMM dd HH:mm");

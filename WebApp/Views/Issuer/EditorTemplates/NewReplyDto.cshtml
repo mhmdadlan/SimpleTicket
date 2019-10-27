@@ -1,35 +1,17 @@
 ﻿@model WebApp.Models.NewReplyDto
 
-@{
-    ViewBag.Title = "View";
-}
 
-<h2>View</h2>
-
-@using (Html.BeginForm()) 
+@using (Html.BeginForm())
 {
     @Html.AntiForgeryToken()
-    
-    <div class="form-horizontal">
-        <h4>NewReplyDto</h4>
-        <hr />
+
+    <div class=" clearfix">
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
-            @Html.LabelFor(model => model.Content, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.TextAreaFor(model => model.Content,  new { @class = "form-control" } )
-                @Html.ValidationMessageFor(model => model.Content, "", new { @class = "text-danger" })
-            </div>
+            @Html.TextAreaFor(model => model.Content, new { @class = "form-control", placeholder = "Write a Reply" })
+            @Html.ValidationMessageFor(model => model.Content, "", new { @class = "text-danger" })
         </div>
 
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Submit" class="btn btn-default" />
-            </div>
-        </div>
+        <input type="submit" value="Submit" class="btn btn-dark float-right" />
     </div>
 }
-
-<div>
-    @Html.ActionLink("Back to List", "Index")
-</div>

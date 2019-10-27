@@ -65,7 +65,7 @@ namespace WebApp.Controllers
         [Route("ViewTicket/{ID}", Name = "ViewTicket")]
         public ActionResult ViewTicket(int ID)
         {
-            Ticket ticketM = db.Tickets.Include("Replies").Include("TicketIndicators.Indicator").Include("CreatedBy").Where(t => t.ID == ID).FirstOrDefault();
+            Ticket ticketM = db.Tickets.Include("Replies").Include("TicketIndicators.Indicator").Include("Tags").Include("CreatedBy").Where(t => t.ID == ID).FirstOrDefault();
             if (ticketM == null)
                 return HttpNotFound();
             ViewTicketDto viewTicketDto = TicketDtoFactory.Instance.MapToViewTicketDto(ticketM);
