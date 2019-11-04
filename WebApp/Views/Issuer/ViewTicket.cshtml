@@ -22,15 +22,15 @@
 <div class="card">
     <div class="card-header">
         <div class="row">
-            <div class="col"><span class="font-weight-bold">@Html.DisplayNameFor(m => m.Subject): </span>@Html.DisplayFor(m => m.Subject)</div>
-            <div class="col"><span class="font-weight-bold">@Html.DisplayNameFor(m => m.Type): </span>@Html.DisplayFor(m => m.Type)</div>
-            <div class="col"><span class="font-weight-bold">@Html.DisplayNameFor(m => m.Status): </span><span class="badge badge-@Model.StatusColor">@Html.DisplayFor(m => m.Status)</span></div>
-            <div class="col"><span class="font-weight-bold">@Html.DisplayNameFor(m => m.CreatedBy): </span>@Html.DisplayFor(m => m.CreatedBy)</div>
+            <div class="col-3"><span class="font-weight-bold">@Html.DisplayNameFor(m => m.Subject): </span>@Html.DisplayFor(m => m.Subject)</div>
+            <div class="col-3"><span class="font-weight-bold">@Html.DisplayNameFor(m => m.Type): </span>@Html.DisplayFor(m => m.Type)</div>
+            <div class="col-3"><span class="font-weight-bold">@Html.DisplayNameFor(m => m.Status): </span><span class="badge badge-@Model.StatusColor">@Html.DisplayFor(m => m.Status)</span></div>
+            <div class="col-3"><span class="font-weight-bold">@Html.DisplayNameFor(m => m.CreatedBy): </span>@Html.DisplayFor(m => m.CreatedBy)</div>
         </div>
         <div class="row">
-            <div class="col"><span class="font-weight-bold">@Html.DisplayNameFor(m => m.CreatedAt): </span>@Html.DisplayFor(m => m.CreatedAt)</div>
-            <div class="col"><span class="font-weight-bold">@Html.DisplayNameFor(m => m.UpdatedAt): </span>@Html.DisplayFor(m => m.UpdatedAt)</div>
-            <div class="col"><span class="font-weight-bold">@Html.DisplayNameFor(m => m.Tags): </span>@Model.Tags</div>
+            <div class="col-3"><span class="font-weight-bold">@Html.DisplayNameFor(m => m.CreatedAt): </span>@Html.DisplayFor(m => m.CreatedAt)</div>
+            <div class="col-3"><span class="font-weight-bold">@Html.DisplayNameFor(m => m.UpdatedAt): </span>@Html.DisplayFor(m => m.UpdatedAt)</div>
+            <div class="col-6"><span class="font-weight-bold">@Html.DisplayNameFor(m => m.Tags): </span>@Model.Tags</div>
         </div>
     </div>
     <div class="card-body pb-5">
