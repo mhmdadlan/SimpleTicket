@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -49,11 +50,11 @@ namespace DataAccess.Models
         // Required
         public string CreatedByID { get; set; }
         // Required
-        [ForeignKey("CreatedByID")]
-        public virtual ApplicationUser CreatedBy { get; private set; }
-        // Required
         public DateTime CreatedAt { get; private set; } = DateTime.UtcNow.AddHours(3);
         public DateTime? UpdatedAt { get; set; }
+        // Required
+        [ForeignKey("CreatedByID")]
+        public virtual ApplicationUser CreatedBy { get; private set; }
         public virtual ICollection<Assignee> Assignees { get; private set; } = new List<Assignee>();
         public virtual ICollection<Reply> Replies { get; private set; } = new List<Reply>();
         public virtual ICollection<Tag> Tags { get; private set; } = new List<Tag>();

@@ -16,7 +16,7 @@ namespace WebApp.Models
 
         }
 
-        public Ticket MapFromDto(CreateTicketDto createTicketDto, TicketContext db)
+        public Ticket MapFromCreateTicketDto(CreateTicketDto createTicketDto, TicketContext db)
         {
             List<Tag> tags = new List<Tag>();
             if (createTicketDto.Tags != null)
@@ -39,11 +39,7 @@ namespace WebApp.Models
                 db.Indicators.Where(i => i.ID == createTicketDto.TypeID).FirstOrDefault(),
                 db.Indicators.Where(i => i.Name == IndicatorName.Status && i.Title == "Pending").FirstOrDefault(), tags.ToArray());
         }
-        public CreateTicketDto MapFromTicket()
-        {
-            return new CreateTicketDto();
-        }
-        public List<ListTicketsDto> MapFromTicketListToDto(List<Ticket> tickets)
+        public List<ListTicketsDto> MapToListTicketsDto(List<Ticket> tickets)
         {
             List<ListTicketsDto> listDto = new List<ListTicketsDto>();
             foreach (Ticket ticket in tickets)
@@ -90,6 +86,25 @@ namespace WebApp.Models
             }
             return viewTicketDto;
         }
-        
+        public List<ListTicketsDashboardDto> MapToListTicketsDashboardDto(List<Ticket> tickets)
+        {
+            List<ListTicketsDashboardDto> listDto = new List<ListTicketsDashboardDto>();
+            foreach (Ticket ticket in tickets)
+            {
+                ListTicketsDashboardDto TicketDto = new ListTicketsDashboardDto();
+                TicketDto.ID = ticket.ID;
+                TicketDto.Subject = ticket.Subject;
+                TicketDto.CreatedAt = ticket.CreatedAt.ToString("MMM dd HH:mm");
+                TicketDto.UpdatedAt = ticket.UpdatedAt.HasValue ? ticket.UpdatedAt.Value.ToString("MMM dd HH:mm") : "-";
+                TicketDto.Status = ticket.Status.Indicator.Title;
+                TicketDto.Type = ticket.Type.Indicator.Title;
+                TicketDto.Priotity = ticket.Priority?.Indicator.Title ?? "-";
+                TicketDto.CreatedBy = ticket.CreatedBy.UserName;
+                TicketDto.Assignee = ticket.Assignee?.AssignedTo.UserName ?? "-";
+                listDto.Add(TicketDto);
+            }
+            return listDto;
+        }
+
     }
 }

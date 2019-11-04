@@ -1,6 +1,7 @@
 ﻿using DataAccess;
 using DataAccess.Models;
 using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.Owin;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +14,19 @@ namespace WebApp.Controllers
     [Authorize(Roles = "Issuer")]
     public class IssuerController : Controller
     {
-        protected TicketContext db = new TicketContext();
+        private TicketContext _db;
+        public TicketContext db
+        {
+            get
+            {
+                return _db ?? HttpContext.GetOwinContext().Get<TicketContext>();
+            }
+            private set
+            {
+                _db = value;
+            }
+        }
+
         [Route("~/")]
         [Route("Home", Name = "Home")]
         public ActionResult Home()
@@ -26,7 +39,7 @@ namespace WebApp.Controllers
         {
             var userId = User.Identity.GetUserId();
             var ticketsList = db.Tickets.Include("TicketIndicators.Indicator").Where(t => t.CreatedByID == userId).ToList();
-            List<ListTicketsDto> ticketListDto = TicketDtoFactory.Instance.MapFromTicketListToDto(ticketsList);
+            List<ListTicketsDto> ticketListDto = TicketDtoFactory.Instance.MapToListTicketsDto(ticketsList);
             return View(ticketListDto);
         }
         [Route("NewTicket", Name = "NewTicket")]
@@ -47,7 +60,7 @@ namespace WebApp.Controllers
                 return View(creatTicketVM);
             }
             creatTicketVM.CreatedByID = HttpContext.User.Identity.GetUserId();
-            Ticket ticketDM = TicketDtoFactory.Instance.MapFromDto(creatTicketVM, db);
+            Ticket ticketDM = TicketDtoFactory.Instance.MapFromCreateTicketDto(creatTicketVM, db);
             db.Entry(ticketDM).State = System.Data.Entity.EntityState.Added;
             if (ticketDM.Tags != null)
                 foreach (var tag in ticketDM.Tags)

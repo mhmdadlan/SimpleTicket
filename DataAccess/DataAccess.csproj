@@ -105,6 +105,10 @@
     <Compile Include="Migrations\201910241453546_MakeTagTitleUnique.designer.cs">
       <DependentUpon>201910241453546_MakeTagTitleUnique.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201911041457508_RemoveRedundantDataInUserRoleModel.cs" />
+    <Compile Include="Migrations\201911041457508_RemoveRedundantDataInUserRoleModel.designer.cs">
+      <DependentUpon>201911041457508_RemoveRedundantDataInUserRoleModel.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\ICurrent.cs" />
     <Compile Include="Models\TicketsModels\Indicator.cs" />
@@ -144,6 +148,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201910241453546_MakeTagTitleUnique.resx">
       <DependentUpon>201910241453546_MakeTagTitleUnique.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201911041457508_RemoveRedundantDataInUserRoleModel.resx">
+      <DependentUpon>201911041457508_RemoveRedundantDataInUserRoleModel.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

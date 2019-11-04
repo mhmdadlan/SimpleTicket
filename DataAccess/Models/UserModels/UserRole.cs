@@ -11,8 +11,6 @@ namespace DataAccess.Models
     {
         public UserRole() : base() { }
 
-        public string ArabicName { get; set; }
-        public string Description { get; set; }
         public virtual ApplicationUser User { get; set; }
         public virtual Role Role { get; set; }
 
