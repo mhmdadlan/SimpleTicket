@@ -25,7 +25,7 @@
             <div class="col-3"><span class="font-weight-bold">@Html.DisplayNameFor(m => m.Subject): </span>@Html.DisplayFor(m => m.Subject)</div>
             <div class="col-3"><span class="font-weight-bold">@Html.DisplayNameFor(m => m.Type): </span>@Html.DisplayFor(m => m.Type)</div>
             <div class="col-3"><span class="font-weight-bold">@Html.DisplayNameFor(m => m.Status): </span><span class="badge badge-@Model.StatusColor">@Html.DisplayFor(m => m.Status)</span></div>
-            <div class="col-3"><span class="font-weight-bold">@Html.DisplayNameFor(m => m.CreatedBy): </span>@Html.DisplayFor(m => m.CreatedBy)</div>
+            <div class="col-3"><span class="font-weight-bold">@Html.DisplayNameFor(m => m.CreatedBy.UserName): </span>@Html.DisplayFor(m => m.CreatedBy.UserName)</div>
         </div>
         <div class="row">
             <div class="col-3"><span class="font-weight-bold">@Html.DisplayNameFor(m => m.CreatedAt): </span>@Html.DisplayFor(m => m.CreatedAt)</div>

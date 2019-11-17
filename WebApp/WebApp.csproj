@@ -169,15 +169,18 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helpers\Authorization.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Dashboard\ListTicketsDashboardDto.cs" />
     <Compile Include="Models\Issuer\CreateTicketDto.cs" />
     <Compile Include="Models\Issuer\ListTicketsDto.cs" />
+    <Compile Include="Models\Issuer\UserDto.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\Issuer\NewReplyDto.cs" />
     <Compile Include="Models\TicketDtoFactory.cs" />
     <Compile Include="Models\Issuer\ViewTicketDto.cs" />
     <Compile Include="Models\Issuer\ViewTicketReplyDto.cs" />
+    <Compile Include="Models\Dashboard\ManageTicketDashboardDto.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -279,8 +282,8 @@
     <Content Include="Views\Issuer\NewTicket.cshtml" />
     <Content Include="Views\Issuer\MyTickets.cshtml" />
     <Content Include="Views\Issuer\ViewTicket.cshtml" />
-    <Content Include="Views\Issuer\EditorTemplates\NewReplyDto.cshtml" />
-    <Content Include="Views\Issuer\DisplayTemplates\ViewTicketReplyDto.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\NewReplyDto.cshtml" />
+    <Content Include="Views\Shared\DisplayTemplates\ViewTicketReplyDto.cshtml" />
     <Content Include="Views\Issuer\Home.cshtml" />
     <Content Include="Views\Account\_Layout.cshtml" />
     <Content Include="Views\Account\_ViewStart.cshtml" />
@@ -292,6 +295,7 @@
     <Content Include="Views\Dashboard\Shared\_Layout.cshtml" />
     <Content Include="Views\Dashboard\_ViewStart.cshtml" />
     <Content Include="Views\Dashboard\ManageTickets.cshtml" />
+    <Content Include="Views\Dashboard\ManageTicket.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

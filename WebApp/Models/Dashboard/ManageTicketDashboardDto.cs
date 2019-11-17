@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
+﻿using System.Collections.Generic;
 
 namespace WebApp.Models
 {
-    public class ViewTicketDto
+    public class ManageTicketDashboardDto
     {
         public int ID { get; set; }
         public string Subject { get; set; }
@@ -32,7 +29,5 @@ namespace WebApp.Models
         public string UpdatedAt { get; set; }
         public ICollection<ViewTicketReplyDto> Replies { get; set; } = new List<ViewTicketReplyDto>();
         public NewReplyDto NewReply { get; set; } = new NewReplyDto();
-
-
     }
 }

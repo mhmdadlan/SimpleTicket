@@ -1,0 +1,59 @@
+﻿@model WebApp.Models.ManageTicketDashboardDto
+
+@{
+    ViewBag.Title = "ViewTicket";
+}
+
+
+@section styles{
+    <style>
+        .comment-wrapper .media-list .media img {
+            width: 64px;
+            height: 64px;
+            border: 2px solid #e5e7e8;
+        }
+
+        .comment-wrapper .media-list .media {
+            border-bottom: 1px dashed #9f9f9f;
+            margin-bottom: 25px;
+        }
+    </style>
+}
+<h2>Ticket Details</h2>
+<hr />
+<div class="row">
+    <div class="col-4"></div>
+    <div class="col-8">
+        <div class="card ">
+            <div class="card-header">
+                <div class="row">
+                    <div class="col-3"><span class="font-weight-bold">@Html.DisplayNameFor(m => m.Subject): </span>@Html.DisplayFor(m => m.Subject)</div>
+                    <div class="col-3"><span class="font-weight-bold">@Html.DisplayNameFor(m => m.Type): </span>@Html.DisplayFor(m => m.Type)</div>
+                    <div class="col-3"><span class="font-weight-bold">@Html.DisplayNameFor(m => m.Status): </span><span class="badge badge-@Model.StatusColor">@Html.DisplayFor(m => m.Status)</span></div>
+                    <div class="col-3"><span class="font-weight-bold">@Html.DisplayNameFor(m => m.CreatedBy.UserName): </span>@Html.DisplayFor(m => m.CreatedBy.UserName)</div>
+                </div>
+                <div class="row">
+                    <div class="col-3"><span class="font-weight-bold">@Html.DisplayNameFor(m => m.CreatedAt): </span>@Html.DisplayFor(m => m.CreatedAt)</div>
+                    <div class="col-3"><span class="font-weight-bold">@Html.DisplayNameFor(m => m.UpdatedAt): </span>@Html.DisplayFor(m => m.UpdatedAt)</div>
+                    <div class="col-6"><span class="font-weight-bold">@Html.DisplayNameFor(m => m.Tags): </span>@Model.Tags</div>
+                </div>
+            </div>
+            <div class="card-body pb-5">
+                <div class="row">
+                    <div class="col">@Html.DisplayFor(m => m.Details)</div>
+                </div>
+            </div>
+            <div class="card-footer comment-wrapper bg-light p-2">
+                <ul class="media-list pl-0">
+                    @Html.DisplayFor(model => model.Replies)
+                </ul>
+                @Html.EditorFor(model => model.NewReply)
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/jqueryval")
+}

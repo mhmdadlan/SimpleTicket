@@ -19,7 +19,6 @@ namespace WebApp.Controllers
     {
         private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
-        private TicketContext _db;
 
         public AccountController()
         {
@@ -40,17 +39,6 @@ namespace WebApp.Controllers
             private set
             {
                 _signInManager = value;
-            }
-        }
-        public TicketContext db
-        {
-            get
-            {
-                return _db ?? HttpContext.GetOwinContext().Get<TicketContext>();
-            }
-            private set
-            {
-                _db = value;
             }
         }
 

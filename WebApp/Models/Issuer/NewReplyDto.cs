@@ -8,7 +8,6 @@ namespace WebApp.Models
 {
     public class NewReplyDto
     {
-        public int? CreatedByID { get; set; }
         [Required]
         public string Content { get; set; }
     }
