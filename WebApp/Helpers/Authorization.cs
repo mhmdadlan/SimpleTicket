@@ -22,10 +22,25 @@ namespace WebApp.Helpers
             {
                 return true;
             }
-            else if(ticket.CreatedBy.Id == currentUserId)
+            else if (ticket.CreatedBy.Id == currentUserId)
             {
                 return true;
-            }else if (assignee?.AssignedTo.Id == currentUserId)
+            }
+            else if (assignee?.AssignedTo.Id == currentUserId)
+            {
+                return true;
+            }
+            return false;
+        }
+        public static bool CanManage(this Ticket ticket, IPrincipal user)
+        {
+            Assignee assignee = ticket.Assignee;
+            string currentUserId = user.Identity.GetUserId();
+            if (user.IsInRole("Admin") || user.IsInRole("Assignor"))
+            {
+                return true;
+            }
+            else if (assignee?.AssignedTo.Id == currentUserId)
             {
                 return true;
             }

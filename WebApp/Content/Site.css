@@ -1,1 +1,29 @@
-﻿
+﻿.grid-divider {
+    overflow-x: hidden;
+    position: relative;
+}
+
+    .grid-divider > [class*="col-"]:nth-child(n + 2):after {
+        content: "";
+        background-color: rgba(0,0,0,.1);
+        position: absolute;
+        top: 0;
+        bottom: 0;
+    }
+
+@media (max-width: 767px) {
+    .grid-divider > [class*="col-"]:nth-child(n + 2):after {
+        width: 100%;
+        height: 1px;
+        left: 0;
+        top: -4px;
+    }
+}
+
+@media (min-width: 768px) {
+    .grid-divider > [class*="col-"]:nth-child(n + 2):after {
+        width: 1px;
+        height: auto;
+        left: -1px;
+    }
+}

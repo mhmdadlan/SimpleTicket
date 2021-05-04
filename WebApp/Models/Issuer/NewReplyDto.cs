@@ -10,5 +10,6 @@ namespace WebApp.Models
     {
         [Required]
         public string Content { get; set; }
+        public int TicketID { get; set; } = 0;
     }
 }

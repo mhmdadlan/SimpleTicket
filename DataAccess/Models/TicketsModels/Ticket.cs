@@ -68,7 +68,7 @@ namespace DataAccess.Models
         [NotMapped]
         public Assignee Assignee { get { return Assignees?.Where(t => t.Current).FirstOrDefault(); } }
 
-        private void UpdateIndicator(Indicator indicator, ApplicationUser user)
+        public void UpdateIndicator(Indicator indicator, ApplicationUser user)
         {
             if (indicator == null)
                 return;
@@ -104,18 +104,18 @@ namespace DataAccess.Models
                 throw new ArgumentException(nameof(tag));
             Tags.Remove(tag);
         }
-        private void UpdateTags(ICollection<Tag> newTags)
+        public void UpdateTags(ICollection<Tag> newTags)
         {
             if (newTags == null)
                 throw new ArgumentNullException(nameof(newTags));
             foreach (Tag tag in newTags)
             {
-                if (!Tags.Contains(tag))
+                if (!Tags.Any(t => t.Title == tag.Title))
                 {
                     Tags.Add(tag);
                 }
             }
-            foreach (Tag tag in Tags.Where(t => !newTags.Contains(t)))
+            foreach (Tag tag in Tags.ToList().Where(t => !newTags.Any(r => t.Title == r.Title)))
             {
                 RemoveTag(tag);
             }

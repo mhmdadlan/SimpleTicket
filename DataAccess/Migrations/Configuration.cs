@@ -1,6 +1,7 @@
 ﻿namespace DataAccess.Migrations
 {
     using DataAccess.Models;
+    using Microsoft.AspNet.Identity;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
@@ -17,6 +18,8 @@
         protected override void Seed(DataAccess.TicketContext context)
         {
             //  This method will be called after migrating to the latest version.
+            var store = new ApplicationUserStore(context);
+            var manager = new ApplicationUserManager(store);
 
             //  You can use the DbSet<T>.AddOrUpdate() helper extension method
             //  to avoid creating duplicate seed data.
@@ -37,6 +40,16 @@
                 new Role { Name = "Assignor", Description = "Ticket Assignor role" },
                 new Role { Name = "Assignee", Description = "Ticket Proccessor Role" },
                 new Role { Name = "Issuer", Description = "Ticket Issuer Role" });
+            if (!context.Users.Any(u => u.UserName == "Admin"))
+            {
+                var user = new ApplicationUser { UserName = "Admin", Email = "me@madlan.me" };
+                manager.Create(user, "Password123");
+            }
+            manager.AddToRole(manager.FindByName("Admin").Id, "Admin");
+            manager.AddToRole(manager.FindByName("Admin").Id, "Assignor");
+            manager.AddToRole(manager.FindByName("Admin").Id, "Assignee");
+            manager.AddToRole(manager.FindByName("Admin").Id, "Issuer");
+
         }
     }
 }
